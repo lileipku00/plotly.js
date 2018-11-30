@@ -6,7 +6,6 @@
 * LICENSE file in the root directory of this source tree.
 */
 
-
 'use strict';
 
 var isNumeric = require('fast-isnumeric');
@@ -50,10 +49,8 @@ module.exports = function handleXYZDefaults(traceIn, traceOut, coerce, layout, x
 };
 
 function coordDefaults(coordStr, coerce) {
-    var coord = coerce(coordStr),
-        coordType = coord ?
-            coerce(coordStr + 'type', 'array') :
-            'scaled';
+    var coord = coerce(coordStr);
+    var coordType = coord ? coerce(coordStr + 'type', 'array') : 'scaled';
 
     if(coordType === 'scaled') {
         coerce(coordStr + '0');
