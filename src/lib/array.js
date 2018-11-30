@@ -136,8 +136,12 @@ exports.concat = function() {
 exports.maxRowLength = function(z) {
     var len = 0;
 
-    for(var i = 0; i < z.length; i++) {
-        len = Math.max(len, z[i].length);
+    if(Array.isArray(z[0])) {
+        for(var i = 0; i < z.length; i++) {
+            len = Math.max(len, z[i].length);
+        }
+    } else if(Array.isArray(z)) {
+        len = z.length;
     }
 
     return len;
