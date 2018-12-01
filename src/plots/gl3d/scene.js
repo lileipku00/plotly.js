@@ -192,8 +192,9 @@ function initializeGLPlot(scene, canvas, gl) {
             STATIC_CONTEXT = getContext({
                 canvas: STATIC_CANVAS,
                 preserveDrawingBuffer: true,
-                premultipliedAlpha: true,
-                antialias: true
+                premultipliedAlpha: false,
+                antialias: true,
+                alpha: true
             });
             if(!STATIC_CONTEXT) {
                 throw new Error('error creating static canvas/context for image server');
@@ -202,6 +203,10 @@ function initializeGLPlot(scene, canvas, gl) {
         glplotOptions.pixelRatio = scene.pixelRatio;
         glplotOptions.gl = STATIC_CONTEXT;
         glplotOptions.canvas = STATIC_CANVAS;
+
+        //glplotOptions.gl.clearColor(1,1,1,1);
+        //glplotOptions.gl.clear(gl.COLOR_BUFFER_BIT);
+        //glplotOptions.gl.colorMask(true, true, true, true);
     }
 
     try {

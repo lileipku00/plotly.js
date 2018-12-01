@@ -100,8 +100,9 @@ proto.makeFramework = function() {
             STATIC_CONTEXT = getContext({
                 canvas: STATIC_CANVAS,
                 preserveDrawingBuffer: false,
-                premultipliedAlpha: true,
-                antialias: true
+                premultipliedAlpha: false,
+                antialias: true,
+                alpha: true
             });
 
             if(!STATIC_CONTEXT) {
